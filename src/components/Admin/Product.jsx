@@ -100,7 +100,7 @@ const Product = () => {
         <div className='grid md:grid-cols-4 gap-8'>
           {products.map((item, index) => (
             <div key={index} className='bg-white rounded-md shadow-lg'>
-              <img src={item.Image} alt={item.title} className='rounded-t-md w-full  h-[270px] objecy cover' />
+              <img src={item.Image} alt={item.title} className='rounded-t-md w-full  h-[270px] object-cover' />
               <div className='p-4 '>
                 <h1 className='font-semibold text-md '>{item.title}</h1>
                 <p className='text-gray-600 text-sm'>{item.description.slice(0,50)}...</p>
@@ -113,7 +113,7 @@ const Product = () => {
               
             </div>
            
-          ))}
+          ))} 
         </div>
       </div>
     </Layouter>

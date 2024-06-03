@@ -134,7 +134,6 @@ const Order = () => {
 
             </div>
         </Layouter>
-
     )
 }
 
