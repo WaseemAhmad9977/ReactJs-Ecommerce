@@ -120,6 +120,9 @@ const Productss = () => {
                                         <label htmlFor="" className='text-gray-600 text-sm text-center'>({item.discount}%Off)</label>
                                     </div>
                                     <button className='bg-green-500 p-2 w-full mt-4 rounded mx-auto '>buy now</button>
+                                    <button className='bg-rose-500 p-2 w-full mt-2 rounded mx-auto '>
+                                    <i className="ri-shopping-cart-line mr-2"></i>
+                                        Add To Cart</button>
                                 </div>
                             </div>
                         ))}

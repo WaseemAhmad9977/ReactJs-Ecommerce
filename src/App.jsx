@@ -10,6 +10,8 @@ import Setting from './components/Admin/Setting';
 import Home from './components/Home';
 import Productss from './components/Productss';
 import Category from './components/Category';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 
 
@@ -23,6 +25,8 @@ const App = () => {
         <Route path='/' element={<Home/>} />
         <Route path='/product' element={<Productss/>} />
         <Route path='/category' element={<Category/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/signup' element={<Signup/>} />
         <Route path="/admin">
           <Route path='product' element={<Product/>} />
           <Route path="order" element={<Order/>}/>
