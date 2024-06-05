@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
 
 
 const Signup = () => {
@@ -12,9 +13,8 @@ const Signup = () => {
         // console.log(newShowPass ? 'text' : 'password');
     };
 
-
     return (
-        <div className='grid md:grid-cols-2 md:h-screen md:overflow-hidden  '>
+        <div className='grid md:grid-cols-2 md:h-screen md:overflow-hidden animate__animated animate__animated animate__fadeIn  '>
             <img src="/images/signup.jpg" alt="" className='md:h-full h-4/5 object-cover w-full h ' />
             <div className='flex flex-col md:p-16 p-8'>
                 <h1 className='text-4xl font-bold'>New User</h1>
@@ -27,7 +27,6 @@ const Signup = () => {
                             name='Fullname'
                             placeholder='Enter your name'
                             className='p-3 border border-gray-300 rounded'
-
                         />
                     </div>
                     <div className='flex flex-col'>
@@ -57,8 +56,14 @@ const Signup = () => {
                         </button>
                     </div>
 
-                    <button className='border bg-blue-600 rounded p-2 text-white font-semibold  px-5 hover:bg-rose-600'>Signup</button>
+                    <button className='border bg-blue-600 rounded p-2 text-white font-semibold  px-5 hover:bg-rose-600'>
+                        Signup
+                    </button>
                 </form>
+
+                <div className='mt-2'>
+                  Already have an account ? <NavLink to='/login' className='text-blue-600 font-semibold'>Login.</NavLink>
+                </div>
             </div>
         </div>
     )
