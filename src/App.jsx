@@ -1,5 +1,6 @@
 import 'remixicon/fonts/remixicon.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import 'animate.css';
 import Order from './components/Admin/Order';
 import NotFound from './components/NotFound';
 import Product from './components/Admin/Product';
@@ -12,6 +13,7 @@ import Productss from './components/Productss';
 import Category from './components/Category';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Contact from './components/Contact';
 
 
 
@@ -27,6 +29,7 @@ const App = () => {
         <Route path='/category' element={<Category/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
+        <Route path='/contact-us' element={<Contact/>} />
         <Route path="/admin">
           <Route path='product' element={<Product/>} />
           <Route path="order" element={<Order/>}/>
