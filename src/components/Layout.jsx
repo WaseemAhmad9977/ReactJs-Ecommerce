@@ -1,11 +1,32 @@
 
-import React, { useState } from 'react'
-import { NavLink,useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
+import firebaseAppConfig from '../util/firebase-config'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
+const auth = getAuth();
 
 const Layout = ({ children }) => {
 
+    const [showProfile, setShowProfile] = useState(false);
     const [open, setOpen] = useState(false)
+    const [session, setSession] = useState(null);
+    const [user, setUser] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setSession(user)
+            }
+            else {
+                setSession(false)
+            }
+        })
+
+    }, [])
+
+
     const menus = [
         {
             label: 'Home',
@@ -25,11 +46,26 @@ const Layout = ({ children }) => {
         },
 
     ]
-  
-    const mobileLink=(href)=>{
+
+    const mobileLink = (href) => {
         navigate(href);
         setOpen(false);
     }
+
+
+    if (session === null) {
+        return (
+            <div className='bg-gray-100 h-full fixed top-0 left-0 w-full flex justify-center items-center'>
+                <span className="relative flex h-6 w-6">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-6 w-6 bg-sky-500"></span>
+                </span>
+            </div>
+        )
+
+    }
+
+
 
     return (
         <div>
@@ -53,16 +89,35 @@ const Layout = ({ children }) => {
                             </li>
 
                         ))}
-                        <NavLink
-                            className="block py-6 text-center hover:bg-blue-600 w-[100px] hover:text-white"
-                            to='/login'
-                        >Login</NavLink>
+
+                        {
+                            !session && <>
+                                <NavLink
+                                    className="block py-6 text-center hover:bg-blue-600 w-[100px] hover:text-white"
+                                    to='/login'
+                                >Login</NavLink>
 
 
-                        <NavLink
-                            className="block bg-blue-400 py-3 px-8 text-md  font-semibold  text-center hover:bg-rose-600  hover:text-white"
-                            to='/signup'
-                        >signup</NavLink>
+                                <NavLink
+                                    className="block bg-blue-400 py-3 px-8 text-md  font-semibold  text-center hover:bg-rose-600  hover:text-white"
+                                    to='/signup'
+                                >signup</NavLink>
+                            </>
+                        }
+
+
+                        {
+                            session && <button className='relative' onClick={()=>setShowProfile(!showProfile)}>
+                                <img src='/images/9440461.jpg' className='w-10 h-10 rounded-full' />
+                               {
+                                 showProfile && <div className='w-[150px] p-4 h-[180px] bg-white absolute top-12 left-1 shadow-lg shadow-gray'>
+
+                                 </div>
+                               }
+                            </button>
+                        }
+
+
                     </ul>
 
                 </div>
@@ -72,9 +127,8 @@ const Layout = ({ children }) => {
             <aside className='bg-slate-900 fixed top-0 left-0 ] h-full shadow-lg md:hidden overflow-hidden z-50 '
 
                 style={{
-                    width: open?250:0,
+                    width: open ? 250 : 0,
                     transition: '0.3s'
-
                 }}
             >
                 <div className='flex flex-col p-8 gap-6 '>
