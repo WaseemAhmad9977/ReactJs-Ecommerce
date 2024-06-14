@@ -99,12 +99,12 @@ const Home = () => {
 
 
 
-
     return (
         <Layout>
             <div>
                 <header>
-                    <Swiper navigation={true} pagination={true} modules={[Pagination, Navigation]} className="mySwiper"
+                    <Swiper navigation={true} pagination={true} modules={[Pagination, Navigation]} className="mySwiper z-[-1]"
+                       
 
                         slidesPerView={1}
 
@@ -124,7 +124,6 @@ const Home = () => {
                         <SwiperSlide>
                             <img src="/images/p5.jpg" alt="" />
                         </SwiperSlide>
-
                     </Swiper>
 
                 </header>

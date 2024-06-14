@@ -14,7 +14,7 @@ const Login = () => {
     };
 
     return (
-        <div className='grid md:grid-cols-2 md:h-screen md:overflow-hidden animate__animated animate__animated animate__fadeIn  '>
+        <div className='grid md:grid-cols-2 md:h-screen md:overflow-hidden animate__animated animate__animated animate__zoomIn '>
             <img src="/images/signup.jpg" alt="" className='md:h-full h-4/5 object-cover w-full h ' />
             <div className='flex flex-col md:p-16 p-8'>
                 <h1 className='text-4xl font-bold'>Sign in</h1>
@@ -48,7 +48,7 @@ const Login = () => {
                         </button>
                     </div>
 
-                    <button className='border bg-blue-600 rounded p-2 text-white font-semibold  px-5 hover:bg-rose-600'>Signup</button>
+                    <button className='border bg-blue-600 rounded p-2 text-white font-semibold  px-5 hover:bg-rose-600'>Login</button>
                 </form>
 
                 <div className='mt-2'>
